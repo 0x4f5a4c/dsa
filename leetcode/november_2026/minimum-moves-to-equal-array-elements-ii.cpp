@@ -23,6 +23,19 @@ public:
     }
 };
 
+class Solution {
+public:
+    int minMoves2(vector<int>& nums) {
+        int n = nums.size(), steps = 0;
+        sort(nums.begin(), nums.end());
+        int _mid = n / 2;
+        for(int i=0; i < _mid; i++){  // this loop is traversing till half of the array which is faster then above solution
+            steps += nums[n-1-i] - nums[i]; //Adding difference
+        }
+        return steps;
+    }
+};
+
 auto init = []() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
